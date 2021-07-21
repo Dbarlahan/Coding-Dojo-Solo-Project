@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link" href="/account">Account</a>
+                    <a class="nav-link" href="/logout">Logout</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="px-3">
+            <h1>Hello, {{ request.session.first_name }}!</h1>
+            <p class="lead">"{{ quotes.q }}" - {{ quotes.a }}</p>
+            <p class="lead"><a href="/create_page">Create a new quiz</a></p>
+
+            <h6>List of all the quizes created:</h6>
+            {% for quiz in quizzes %}
+            <div id="quiz_box">
+                <a href="/view_quiz/{{ quiz.id }}">{{ quiz.title }}</a>
+                <p>{{ quiz.description }}</p>
+                <p>
+                    <a href="/edit_page/{{ quiz.id }}" class="btn btn-primary">Edit</a>
+                    <a href="/delete/{{ quiz.id }}" class="btn btn-danger">Delete</a>
+                </p>
+            </div>
+            {% endfor %}
+
+    </div>
+</body>
+
+</html>

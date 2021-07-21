@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <body class="d-flex h-100 text-center text-white bg-dark">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link" href="/home">Home</a>
+                    </nav>
+                </div>
+            </header>
+
+            <h1>Create a new quiz</h1>
+
+            {% if messages %}
+                {% for error in messages %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form action="/create_quiz" method="POST">
+                {% csrf_token %}
+                <p>Quiz Title: <input type="text" name="title"></p>
+                <p>Quiz Description: <input type="text" name="description"></p>
+                <br>
+                
+                <p>Question #1: <input type="text" name="question_1"></p>
+                <p>Answer: <input type="text" name="answer_1"></p>
+                <br>
+                
+                <p>Question #2: <input type="text" name="question_2"></p>
+                <p>Answer: <input type="text" name="answer_2"></p>
+                <br>
+                
+                <p>Question #3: <input type="text" name="question_3"></p>
+                <p>Answer: <input type="text" name="answer_3"></p>
+                <br>
+                
+                <p>Question #4: <input type="text" name="question_4"></p>
+                <p>Answer: <input type="text" name="answer_4"></p>
+                <br>
+                
+                <p>Question #5: <input type="text" name="question_5"></p>
+                <p>Answer: <input type="text" name="answer_5"></p>
+                <br>
+                
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+
+
+    </body>
+
+</html>

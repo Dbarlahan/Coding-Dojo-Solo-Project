@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#answer_1').click(function () {
+                $('#question_1').text('{{ quiz.answer_1 }}');
+            })
+        });
+
+        $(document).ready(function () {
+            $('#answer_2').click(function () {
+                $('#question_2').text('{{ quiz.answer_2 }}');
+            })
+        });
+
+        $(document).ready(function () {
+            $('#answer_3').click(function () {
+                $('#question_3').text('{{ quiz.answer_3 }}');
+            })
+        });
+
+        $(document).ready(function () {
+            $('#answer_4').click(function () {
+                $('#question_4').text('{{ quiz.answer_4 }}');
+            })
+        });
+
+        $(document).ready(function () {
+            $('#answer_5').click(function () {
+                $('#question_5').text('{{ quiz.answer_5 }}');
+            })
+        });
+
+        $(document).ready(function () {
+            $('#reset').click(function () {
+                $('#question_1').html('{{ quiz.question_1 }}');
+                $('#question_2').html('{{ quiz.question_2 }}');
+                $('#question_3').html('{{ quiz.question_3 }}');
+                $('#question_4').html('{{ quiz.question_4 }}');
+                $('#question_5').html('{{ quiz.question_5 }}');
+            })
+        });
+    </script>
+</head>
+
+<body>
+
+    <body class="d-flex h-100 text-center text-white bg-dark">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link" href="/home">Home</a>
+                    </nav>
+                </div>
+            </header>
+
+            <h1>{{ quiz.title }}</h1>
+            <p>{{ quiz.description }}</p>
+
+            <div class="container">
+                <button type="button" id="reset" class="btn btn-danger">Reset</button>
+                <br> <br>
+
+                <p id='question_1'> {{ quiz.question_1 }}</p>
+                <button type="button" id="answer_1" class="btn btn-success">Answer</button>
+                <br> <br>
+
+                <p id='question_2'> {{ quiz.question_2 }}</p>
+                <button type="button" id="answer_2" class="btn btn-success">Answer</button>
+                <br> <br>
+
+                <p id='question_3'> {{ quiz.question_3 }}</p>
+                <button type="button" id="answer_3" class="btn btn-success">Answer</button>
+                <br> <br>
+
+                <p id='question_4'> {{ quiz.question_4 }}</p>
+                <button type="button" id="answer_4" class="btn btn-success">Answer</button>
+                <br> <br>
+
+                <p id='question_5'> {{ quiz.question_5 }}</p>
+                <button type="button" id="answer_5" class="btn btn-success">Answer</button>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>
